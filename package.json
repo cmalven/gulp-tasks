@@ -1,0 +1,25 @@
+{
+  "name": "@malven/gulp-tasks",
+  "version": "1.0.0",
+  "description": "Common reusable tasks for Gulp.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cmalven/gulp-tasks"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "Malven Co.",
+    "email": "chris@malven.co",
+    "url": "https://malven.co"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-libsquoosh": "^1.0.12",
+    "gulp-svg-sprite": "^1.5.0"
+  }
+}
