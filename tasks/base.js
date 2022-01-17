@@ -1,4 +1,5 @@
 const gulp = require('gulp');
+const clean = require('./clean');
 
 //
 //   Base
@@ -10,7 +11,7 @@ The baseline tasks to get things going.
 */
 
 module.exports = gulp.series(
-  // 'clean',
+  clean,
   // 'rev:clear',
   // gulp.parallel(
   // 'templates',
