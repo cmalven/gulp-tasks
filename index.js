@@ -5,5 +5,6 @@ exports.reload = require('./tasks/reload');
 exports.base = require('./tasks/base');
 exports.clean = require('./tasks/clean');
 exports.templates = require('./tasks/templates');
+exports.twig = require('./tasks/twig');
 exports.rev = require('./tasks/rev').rev;
 exports.revClear = require('./tasks/rev').revClear;
