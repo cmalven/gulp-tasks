@@ -14,3 +14,4 @@ exports.stylesCopy = require('./tasks/styles_copy');
 exports.scriptsCopy = require('./tasks/scripts_copy');
 exports.rev = require('./tasks/rev').rev;
 exports.revClear = require('./tasks/rev').revClear;
+exports.watch = require('./tasks/watch');
