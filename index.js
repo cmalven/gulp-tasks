@@ -6,5 +6,6 @@ exports.base = require('./tasks/base');
 exports.clean = require('./tasks/clean');
 exports.templates = require('./tasks/templates');
 exports.twig = require('./tasks/twig');
+exports.scripts = require('./tasks/scripts');
 exports.rev = require('./tasks/rev').rev;
 exports.revClear = require('./tasks/rev').revClear;
