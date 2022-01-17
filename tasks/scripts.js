@@ -43,7 +43,7 @@ module.exports = function(done) {
   const webpackConfig = {
     mode: ENV,
 
-    entry: global.GULP_CONFIG.scripts.entryFiles.reduce(function(result, name) {
+    entry: global.GULP_CONFIG.scripts.entries.reduce(function(result, name) {
       result[name] = path.resolve('./' + global.GULP_CONFIG.paths.scriptSrc + name);
       return result;
     }, {}),
