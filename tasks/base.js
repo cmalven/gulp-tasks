@@ -4,6 +4,7 @@ const templates = require('./templates');
 const twig = require('./twig');
 const scripts = require('./scripts');
 const styles = require('./styles');
+const stylesCopy = require('./styles_copy');
 const { revClear } = require('./rev');
 
 //
@@ -23,7 +24,7 @@ module.exports = gulp.series(
     twig,
     scripts,
     styles,
-  // 'styles:copy',
+    stylesCopy,
   // 'styles:lint',
   // 'scripts:copy',
   // 'copy',

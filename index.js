@@ -8,5 +8,6 @@ exports.templates = require('./tasks/templates');
 exports.twig = require('./tasks/twig');
 exports.scripts = require('./tasks/scripts');
 exports.styles = require('./tasks/styles');
+exports.stylesCopy = require('./tasks/styles_copy');
 exports.rev = require('./tasks/rev').rev;
 exports.revClear = require('./tasks/rev').revClear;
