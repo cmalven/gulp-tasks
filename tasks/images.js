@@ -19,3 +19,5 @@ module.exports = function() {
     .pipe(squoosh())
     .pipe(gulp.dest(global.GULP_CONFIG.paths.imageDist));
 };
+
+module.exports.displayName = 'images';

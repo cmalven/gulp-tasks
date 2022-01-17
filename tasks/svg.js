@@ -114,3 +114,5 @@ module.exports = gulp.series(
     done();
   },
 );
+
+module.exports.displayName = 'svg';
