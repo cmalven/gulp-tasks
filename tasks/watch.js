@@ -27,7 +27,7 @@ module.exports = function(done) {
   gulp.watch([
     global.GULP_CONFIG.paths.scriptSrc + '**/*.js',
     global.GULP_CONFIG.paths.scriptSrc + '**/*.glsl',
-  ], gulp.series(gulp.parallel(scripts, scriptsCopy), revClear));
+  ], gulp.series(scripts, scriptsCopy, revClear));
 
   // Twig
   gulp.watch([

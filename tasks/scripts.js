@@ -3,7 +3,6 @@ const webpack = require('webpack');
 const util = require('util');
 const UglifyJsPlugin = require('terser-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-require('core-js/stable');
 
 //
 //   Scripts : Bundle
@@ -74,9 +73,9 @@ module.exports = function(done) {
           ],
         },
         {
-          test: /\.js$/,
+          test: /\.m?js$/,
           exclude: /node_modules/,
-          loader: 'babel-loader',
+          loader: 'swc-loader',
         },
       ],
     },
