@@ -1,13 +1,14 @@
+exports.base = require('./tasks/base');
 exports.browsersync = require('./tasks/browsersync');
 exports.images = require('./tasks/images');
 exports.svg = require('./tasks/svg');
 exports.reload = require('./tasks/reload');
-exports.base = require('./tasks/base');
 exports.clean = require('./tasks/clean');
 exports.templates = require('./tasks/templates');
 exports.twig = require('./tasks/twig');
 exports.scripts = require('./tasks/scripts');
 exports.styles = require('./tasks/styles');
+exports.copy = require('./tasks/copy');
 exports.stylesCopy = require('./tasks/styles_copy');
 exports.scriptsCopy = require('./tasks/scripts_copy');
 exports.rev = require('./tasks/rev').rev;
