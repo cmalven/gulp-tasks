@@ -16,53 +16,73 @@ You'll store your custom Gulp configuration in a `gulpfile.js` that looks someth
 
 ```js
 const { series, parallel } = require('gulp');
-const { images, svg } = require('@malven/gulp-tasks');
+const { base, build, browsersync, images, svg, watch, reload } = require('@malven/gulp-tasks');
 
 global.GULP_CONFIG = {
+  env: 'dev',
+
   paths: {
-    dist: 'web/dist/',
-    templateSrc: 'templates/',
+    dist: 'dist/',
+
+    styleSrc: 'src/styles/',
+    styleDist: 'dist/styles/',
+
+    scriptSrc: 'src/scripts/',
+    scriptDist: 'dist/scripts/',
+    scriptPublic: '/scripts/',
+
+    templateSrc: 'src/templates/',
+    templateDist: 'dist/',
+
     imageSrc: 'src/images/',
-    imageDist: 'web/dist/images/',
+    imageDist: 'dist/images/',
+
+    styleCopyPaths: [],
+    scriptCopyPaths: [],
+    distCopyPaths: [],
+  },
+
+  browsersync: {
+    port: 3500,
+    useProxy: false,
+    proxyUrl: 'http://my-site-url.test',
+    serverBaseDir: 'dist/',
+  },
+
+  scripts: {
+    entries: [
+      'main',
+    ],
+  },
+
+  styles: {
+    entries: [
+      'main',
+    ],
+  },
+
+  twig: {
+    enable: false,
   },
 };
 
-// Export tasks that you'd like to run directly
-exports.images = images;
-exports.svg = svg;
-
-// Export default task
-exports.default = series(
-  parallel(
-    images,
-    svg,
+module.exports = {
+  default: series(
+    base,
+    parallel(
+      watch,
+      browsersync,
+      images,
+      svg,
+    ),
+    reload,
   ),
-  function(done) {
-    done();
-  },
-);
+  build,
+};
+
 ```
 
 The specific values required in `global.GULP_CONFIG` will depend on which tasks you're using.
-
-### Task Configuration
-
-```js
-global.GULP_CONFIG = {
-  paths: {
-    // All tasks
-    dist: 'web/dist/',
-    
-    // Images
-    imageSrc: 'src/images/',
-    imageDist: 'web/dist/images/',
-    
-    // SVG
-    templateSrc: 'templates/',
-    imageSrc: 'src/images/',
-  }
-}
-```
 
 ## Use
 
