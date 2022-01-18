@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const svgSprite = require('gulp-svg-sprite');
+const svgmin = require('gulp-svgmin');
 const del = require('del');
 
 //
@@ -103,12 +104,23 @@ function inline() {
     .pipe(gulp.dest(global.GULP_CONFIG.paths.templateSrc + '_svg/'));
 }
 
+function copy() {
+  return gulp.src([
+    global.GULP_CONFIG.paths.imageSrc + 'svg/**/*.svg',
+  ])
+    .pipe(svgmin({
+      plugins: [].concat(defaultSVGO),
+    }))
+    .pipe(gulp.dest(global.GULP_CONFIG.paths.imageDist + 'svg/'));
+}
+
 module.exports = gulp.series(
   clean,
   gulp.parallel(
     icon,
     full,
     inline,
+    copy,
   ),
   function(done) {
     done();

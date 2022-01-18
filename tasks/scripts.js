@@ -35,6 +35,8 @@ module.exports = function(done) {
   }
 
 
+
+
   //---------------------------------------------------------------
   // Config
   //---------------------------------------------------------------
@@ -59,6 +61,15 @@ module.exports = function(done) {
         path.resolve('./node_modules'),
         path.resolve('./' + global.GULP_CONFIG.paths.scriptSrc + 'vendor'),
       ],
+      alias: {},
+      extensions: ['.js'],
+    },
+
+    resolveLoader: {
+      modules: [
+        __dirname + '/../node_modules',
+        path.resolve('./node_modules'),
+      ],
     },
 
     devtool: ENV === DEV ? 'eval-cheap-source-map': false,
@@ -66,18 +77,20 @@ module.exports = function(done) {
     module: {
       rules: [
         {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader'],
+        },
+        {
           test: /\.(glsl|frag|vert)$/,
           exclude: /node_modules/,
-          use: [
-            'raw-loader',
-          ],
+          use: ['raw-loader'],
         },
         {
           test: /\.m?js$/,
           exclude: /node_modules/,
           loader: 'swc-loader',
         },
-      ],
+      ].concat(global.GULP_CONFIG.scripts.webpack?.rules ?? []),
     },
 
     optimization: {
@@ -96,11 +109,26 @@ module.exports = function(done) {
   };
 
 
-  //---------------------------------------------------------------
-  // Webpack
-  //---------------------------------------------------------------
+  // ---------------------------------------------------------------
+  // Modify Config
+  // ---------------------------------------------------------------
 
-  webpack(webpackConfig, function(err, stats) {
+  /*
+  The entire webpack config can be customized by setting a function
+  on `global.GULP_CONFIG.scripts.webpack` that receives the webpack
+  config and returns the modified config.
+  */
+
+  const modifyConfig = global.GULP_CONFIG.scripts.webpack || function(config) {
+    return config;
+  };
+
+
+  // ---------------------------------------------------------------
+  // Webpack
+  // ---------------------------------------------------------------
+
+  webpack(modifyConfig(webpackConfig), function(err, stats) {
     console.log(err);
     if (err) throw new util.PluginError('webpack', err);
 

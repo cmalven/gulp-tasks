@@ -1,3 +1,4 @@
+exports.defaultTask = require('./tasks/default_task');
 exports.base = require('./tasks/base');
 exports.build = require('./tasks/build');
 exports.browsersync = require('./tasks/browsersync');

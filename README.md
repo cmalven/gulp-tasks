@@ -15,8 +15,7 @@ npm i -D @malven/gulp-tasks
 You'll store your custom Gulp configuration in a `gulpfile.js` that looks something like this:
 
 ```js
-const { series, parallel } = require('gulp');
-const { base, build, browsersync, images, svg, watch, reload } = require('@malven/gulp-tasks');
+const { defaultTask, build } = require('@malven/gulp-tasks');
 
 global.GULP_CONFIG = {
   env: 'dev',
@@ -44,7 +43,7 @@ global.GULP_CONFIG = {
 
   browsersync: {
     port: 3500,
-    useProxy: false,
+    useProxy: true,
     proxyUrl: 'http://my-site-url.test',
     serverBaseDir: 'dist/',
   },
@@ -67,16 +66,7 @@ global.GULP_CONFIG = {
 };
 
 module.exports = {
-  default: series(
-    base,
-    parallel(
-      watch,
-      browsersync,
-      images,
-      svg,
-    ),
-    reload,
-  ),
+  default: defaultTask,
   build,
 };
 
