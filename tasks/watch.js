@@ -32,7 +32,7 @@ module.exports = function(done) {
   // Twig
   gulp.watch([
     global.GULP_CONFIG.paths.templateSrc + '**/*.twig',
-  ], gulp.series(twig));
+  ], gulp.series(twig, reload));
 
   // Images
   gulp.watch([

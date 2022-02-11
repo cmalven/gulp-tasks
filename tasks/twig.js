@@ -20,7 +20,7 @@ module.exports = function(done) {
 
   if (!global.GULP_CONFIG.twig?.enable ?? true) return done();
 
-  let stream = gulp.src([
+  return gulp.src([
     global.GULP_CONFIG.paths.templateSrc + '**/[^_]*.twig',
     '!' + global.GULP_CONFIG.paths.templateSrc + '**/_*/[^_]*.twig',
     '!' + global.GULP_CONFIG.paths.templateSrc + '**/_*/**/[^_]*.twig',
@@ -42,12 +42,6 @@ module.exports = function(done) {
     .on('error', swallowError)
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest(global.GULP_CONFIG.paths.templateDist));
-
-  if (global.browsersync) {
-    stream = stream.pipe(global.browsersync.reload({ stream: true, once: true }));
-  }
-
-  return stream;
 };
 
 module.exports.displayName = 'twig';
