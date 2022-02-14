@@ -41,7 +41,7 @@
     "style-loader": "^3.3.1",
     "swc-loader": "^0.1.15",
     "terser-webpack-plugin": "^5.3.1",
-    "twig-markdown": "^0.2.1",
+    "twig-markdown": "^1.0.1",
     "webpack": "^5.68.0",
     "webpack-bundle-analyzer": "^4.5.0"
   },
