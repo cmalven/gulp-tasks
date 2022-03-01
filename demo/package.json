@@ -12,7 +12,7 @@
     "url": "https://malven.co"
   },
   "devDependencies": {
-    "@malven/gulp-tasks": "^1.6.3",
+    "@malven/gulp-tasks": "file:..",
     "core-js": "^3.21.1",
     "dotenv": "^16.0.0",
     "gulp": "^4.0.2"
