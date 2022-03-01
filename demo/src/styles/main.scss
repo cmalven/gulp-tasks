@@ -1,0 +1,15 @@
+// ===============================================================
+// Main
+// ===============================================================
+
+// Vendor
+@import 'normalize.css/normalize.css';
+@import 'reset.css/reset.css';
+
+// Components
+@import 'layout/**/*.scss';
+@import 'objects/**/*.scss';
+
+body {
+  background-color: #eee;
+}

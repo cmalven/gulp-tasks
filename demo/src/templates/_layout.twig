@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gulp Tasks Demo</title>
+{% include '_partials/head.twig' %}
+</head>
+
+<body>
+
+<main role="main">
+  {% block content %}{% endblock %}
+</main>
+
+<span style="visibility: hidden;">
+  {% include '_svg/symbol/icon.symbol.svg' ignore missing %}
+  {% include '_svg/symbol/full.symbol.svg' ignore missing %}
+</span>
+
+<script defer src="{{ rootDistPath }}/scripts/main.bundle.js"></script>
+
+</body>
+</html>
