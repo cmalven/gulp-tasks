@@ -1,6 +1,6 @@
 {
   "name": "@malven/gulp-tasks",
-  "version": "1.6.3",
+  "version": "1.7.0",
   "description": "Common reusable tasks for Gulp.",
   "main": "index.js",
   "repository": {
