@@ -1,0 +1,30 @@
+{
+  "name": "demo",
+  "description": "Demo setup for gulp tasks.",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cmalven/demo"
+  },
+  "author": {
+    "name": "Malven Co.",
+    "email": "chris@malven.co",
+    "url": "https://malven.co"
+  },
+  "devDependencies": {
+    "@malven/gulp-tasks": "file:..",
+    "core-js": "^3.21.1",
+    "dotenv": "^16.0.0",
+    "gulp": "^4.0.2"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1",
+    "reset.css": "^2.0.2"
+  },
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "license": "UNLICENSED"
+}
