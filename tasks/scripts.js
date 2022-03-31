@@ -97,9 +97,14 @@ module.exports = function(done) {
         ? []
         : [new UglifyJsPlugin()],
       splitChunks: {
+        chunks: 'all',
         cacheGroups: {
-          default: false,
           defaultVendors: false,
+          default: {
+            name: 'default',
+            minChunks: 2,
+            enforce: true,
+          },
         },
       },
     },
