@@ -3,6 +3,7 @@ exports.base = require('./tasks/base');
 exports.build = require('./tasks/build');
 exports.browsersync = require('./tasks/browsersync');
 exports.images = require('./tasks/images');
+exports.imagesClean = require('./tasks/images_clean');
 exports.svg = require('./tasks/svg');
 exports.reload = require('./tasks/reload');
 exports.clean = require('./tasks/clean');
