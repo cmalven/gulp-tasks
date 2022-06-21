@@ -1,3 +1,5 @@
+const browsersync = require('browser-sync');
+
 //
 //   BrowserSync
 //
@@ -25,10 +27,8 @@ module.exports = function(done) {
   }
 
   // Initialize BrowserSync
-  global.browsersync = require('browser-sync').create();
-  global.browsersync.init(null, options);
-
-  done();
+  global.browsersync = browsersync.create();
+  global.browsersync.init(options, done);
 };
 
 module.exports.displayName = 'browsersync';
