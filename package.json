@@ -1,6 +1,6 @@
 {
   "name": "@malven/gulp-tasks",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "description": "Common reusable tasks for Gulp.",
   "main": "index.js",
   "repository": {
@@ -17,12 +17,12 @@
   },
   "license": "ISC",
   "dependencies": {
-    "@swc/core": "^1.2.162",
-    "autoprefixer": "^10.4.4",
-    "browser-sync": "^2.27.9",
+    "@swc/core": "^1.2.204",
+    "autoprefixer": "^10.4.7",
+    "browser-sync": "^2.27.10",
     "css-loader": "^6.7.1",
-    "cssnano": "^5.1.5",
-    "del": "^6.0.0",
+    "cssnano": "^5.1.12",
+    "del": "^6.1.1",
     "gulp": "^4.0.2",
     "gulp-htmlmin": "^5.0.1",
     "gulp-libsquoosh": "^1.1.2",
@@ -34,19 +34,19 @@
     "gulp-svg-sprite": "^1.5.0",
     "gulp-svgmin": "^4.1.0",
     "gulp-twig": "^1.2.0",
-    "postcss": "^8.4.12",
+    "postcss": "^8.4.14",
     "postcss-import": "^14.1.0",
     "raw-loader": "^4.0.2",
-    "sass": "^1.49.10",
+    "sass": "^1.52.3",
     "style-loader": "^3.3.1",
-    "swc-loader": "^0.1.15",
-    "terser-webpack-plugin": "^5.3.1",
+    "swc-loader": "^0.2.3",
+    "terser-webpack-plugin": "^5.3.3",
     "twig-markdown": "^0.2.1",
-    "webpack": "^5.70.0",
+    "webpack": "^5.73.0",
     "webpack-bundle-analyzer": "^4.5.0"
   },
   "devDependencies": {
     "@malven/eslint-config": "^2.0.0",
-    "eslint": "^8.12.0"
+    "eslint": "^8.18.0"
   }
 }
