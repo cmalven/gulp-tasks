@@ -13,8 +13,8 @@
   },
   "devDependencies": {
     "@malven/gulp-tasks": "file:..",
-    "core-js": "^3.21.1",
-    "dotenv": "^16.0.0",
+    "core-js": "^3.23.3",
+    "dotenv": "^16.0.1",
     "gulp": "^4.0.2"
   },
   "dependencies": {

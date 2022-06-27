@@ -1,6 +1,6 @@
 {
   "name": "@malven/gulp-tasks",
-  "version": "1.7.3",
+  "version": "1.8.0",
   "description": "Common reusable tasks for Gulp.",
   "main": "index.js",
   "repository": {
@@ -17,7 +17,7 @@
   },
   "license": "ISC",
   "dependencies": {
-    "@swc/core": "^1.2.204",
+    "@swc/core": "^1.2.205",
     "autoprefixer": "^10.4.7",
     "browser-sync": "^2.27.10",
     "css-loader": "^6.7.1",
@@ -37,11 +37,11 @@
     "postcss": "^8.4.14",
     "postcss-import": "^14.1.0",
     "raw-loader": "^4.0.2",
-    "sass": "^1.52.3",
+    "sass": "^1.53.0",
     "style-loader": "^3.3.1",
     "swc-loader": "^0.2.3",
     "terser-webpack-plugin": "^5.3.3",
-    "twig-markdown": "^0.2.1",
+    "twig-markdown": "^1.0.1",
     "webpack": "^5.73.0",
     "webpack-bundle-analyzer": "^4.5.0"
   },
