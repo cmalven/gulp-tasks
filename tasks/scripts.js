@@ -133,7 +133,6 @@ module.exports = function(done) {
   // ---------------------------------------------------------------
 
   webpack(modifyConfig(webpackConfig), function(err, stats) {
-    console.log(err);
     if (err) throw new util.PluginError('webpack', err);
 
     if (global.browsersync) global.browsersync.reload({ once: true });
