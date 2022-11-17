@@ -1,6 +1,5 @@
 const gulp = require('gulp');
 const svgSprite = require('gulp-svg-sprite');
-const svgmin = require('gulp-svgmin');
 const del = require('del');
 
 //
@@ -12,18 +11,34 @@ const del = require('del');
 Lossless optimization of svg files
 */
 
-const defaultSVGO = [
-  { cleanupIDs: false },
-  { collapseGroups: false },
-  { mergePaths: false },
-  { moveElemsAttrsToGroup: false },
-  { moveGroupAttrsToElems: false },
-  { removeUselessStrokeAndFill: false },
-  { removeViewBox: false },
-];
+const defaultSVGO = (overrides = {}) => {
+  return [
+    {
+      name: 'preset-default',
+      params: {
+        overrides: Object.assign({}, {
+          cleanupIDs: false,
+          collapseGroups: false,
+          mergePaths: false,
+          moveElemsAttrsToGroup: false,
+          moveGroupAttrsToElems: false,
+          removeUselessStrokeAndFill: false,
+          removeViewBox: false,
+        }, overrides),
+      },
+    },
+  ]
+}
+
+const renameSvg = (name) => {
+  return name.replace('.svg', '');
+}
 
 function clean() {
-  return del(global.GULP_CONFIG.paths.templateSrc + '_svg/');
+  return del([
+    global.GULP_CONFIG.paths.imageDist + 'svg/',
+    global.GULP_CONFIG.paths.templateSrc + '_svg/'
+  ]);
 }
 
 function icon() {
@@ -39,16 +54,15 @@ function icon() {
       },
       shape: {
         id: {
-          generator: function(name) {
-            return name.replace('.svg', '');
-          },
+          generator: renameSvg,
         },
         transform: [
           { svgo: {
-            plugins: [
-              { removeAttrs: { attrs: ['opacity'] } },
-              { convertColors: { currentColor: true } },
-            ].concat(defaultSVGO),
+            plugins: defaultSVGO(
+              { convertColors: { currentColor: true } }
+            ).concat([
+              { name: 'removeAttrs', params: { attrs: '(opacity)' } },
+            ]),
           } },
         ],
       },
@@ -69,13 +83,11 @@ function full() {
       },
       shape: {
         id: {
-          generator: function(name) {
-            return name.replace('.svg', '');
-          },
+          generator: renameSvg,
         },
         transform: [
           { svgo: {
-            plugins: [].concat(defaultSVGO),
+            plugins: defaultSVGO().concat([]),
           } },
         ],
       },
@@ -92,7 +104,7 @@ function inline() {
         dest: 'inline',
         transform: [
           { svgo: {
-            plugins: [].concat(defaultSVGO),
+            plugins: defaultSVGO().concat([]),
           } },
         ],
       },
@@ -108,10 +120,20 @@ function copy() {
   return gulp.src([
     global.GULP_CONFIG.paths.imageSrc + 'svg/**/*.svg',
   ])
-    .pipe(svgmin({
-      plugins: [].concat(defaultSVGO),
+    .pipe(svgSprite({
+      shape: {
+        dest: global.GULP_CONFIG.paths.imageDist + 'svg/',
+        id: {
+          generator: renameSvg,
+        },
+        transform: [{
+          svgo: {
+            plugins: defaultSVGO().concat([]),
+          }
+        }],
+      },
     }))
-    .pipe(gulp.dest(global.GULP_CONFIG.paths.imageDist + 'svg/'));
+    .pipe(gulp.dest('./'));
 }
 
 module.exports = gulp.series(
