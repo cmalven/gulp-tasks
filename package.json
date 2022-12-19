@@ -28,7 +28,7 @@
     "gulp-libsquoosh": "^1.1.2",
     "gulp-postcss": "^9.0.1",
     "gulp-replace": "^1.1.3",
-    "gulp-rev": "^9.0.0",
+    "gulp-rev": "^10.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-sass-glob": "^1.1.0",
     "gulp-svg-sprite": "^2.0.1",
