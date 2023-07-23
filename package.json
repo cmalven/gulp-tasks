@@ -1,6 +1,6 @@
 {
   "name": "@malven/gulp-tasks",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Common reusable tasks for Gulp.",
   "main": "index.js",
   "repository": {
@@ -25,7 +25,6 @@
     "del": "^6.1.1",
     "gulp": "^4.0.2",
     "gulp-htmlmin": "^5.0.1",
-    "gulp-libsquoosh": "^1.1.2",
     "gulp-postcss": "^9.0.1",
     "gulp-replace": "^1.1.4",
     "gulp-rev": "^9.0.0",
@@ -37,10 +36,13 @@
     "postcss-import": "^15.1.0",
     "raw-loader": "^4.0.2",
     "sass": "^1.64.1",
+    "sharp": "^0.32.4",
     "style-loader": "^3.3.3",
     "swc-loader": "^0.2.3",
     "terser-webpack-plugin": "^5.3.9",
+    "through2": "^4.0.2",
     "twig-markdown": "^1.0.1",
+    "vinyl-buffer": "^1.0.1",
     "webpack": "^5.88.2",
     "webpack-bundle-analyzer": "^4.9.0"
   },
