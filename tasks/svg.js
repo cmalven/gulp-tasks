@@ -61,7 +61,7 @@ function icon() {
             plugins: defaultSVGO(
               { convertColors: { currentColor: true } }
             ).concat([
-              { name: 'removeAttrs', params: { attrs: '(opacity)' } },
+              { name: 'removeAttrs', params: { attrs: '(opacity|style)' } },
             ]),
           } },
         ],
